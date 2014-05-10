@@ -6,10 +6,10 @@
 
     <ImageView
         android:id="@+id/image_event"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true" />
+        android:src="@drawable/lon" />
 
     <TextView
         android:id="@+id/text_title"
@@ -17,22 +17,22 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="30dp"
-        android:layout_toRightOf="@+id/imageView1"
+        android:layout_toRightOf="@+id/image_event"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/text_time_to"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView1"
-        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/text_title"
+        android:layout_toRightOf="@+id/image_event"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/text_current"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView2"
+        android:layout_toRightOf="@+id/image_event"
         android:layout_alignParentBottom="true"
         android:text="TextView" />
 
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="50dp"
-        android:layout_toRightOf="@+id/textView2"
+        android:layout_toRightOf="@+id/text_current"
         android:text="TextView" />
 
 </RelativeLayout>
