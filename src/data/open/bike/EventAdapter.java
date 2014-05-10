@@ -57,9 +57,9 @@ public class EventAdapter extends BaseAdapter
             holder = (Holder) convertView.getTag();
         }
         holder.textTitle.setText(event.title);
-        holder.textTime_To.setText("時間" + event.begintime);
-        holder.textcurrent.setText("目前人數" + event.currentmember);
-        holder.textall.setText("所有人數" + event.maxmember);
+        holder.textTime_To.setText("出發時間" + event.begintime);
+        holder.textcurrent.setText("目前人數: " + event.currentmember);
+        holder.textall.setText("所有人數: " + event.maxmember);
         return convertView;
     }
 
