@@ -9,4 +9,6 @@ public class Event
     String to;
     int currentmember;
     int maxmember;
+    String detail;
+    int image;
 }

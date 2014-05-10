@@ -30,6 +30,10 @@ public class AllFragment extends ListFragment
     private String TO = "TO_EVENT";
 
     private String FROM = "FROM_EVENT";
+
+    private String DETAIL = "DETAIL_EVENT";
+
+    private String IMAGE = "IMAGE_EVENT";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState)
@@ -48,6 +52,8 @@ public class AllFragment extends ListFragment
         event1.title = "龍山之旅";
         event1.to = "龍山寺";
         event1.from = "西門町";
+        event1.detail = getActivity().getString(R.string.detail_lon);
+        event1.image = R.drawable.lon;
         Event event2 = new Event();
         event2.begintime = "2013/5/31 AM 9:00";
         event2.endtime = "10:00 am";
@@ -56,6 +62,8 @@ public class AllFragment extends ListFragment
         event2.title = "圓仔再臨";
         event2.to = "動物園";
         event2.from = "萬芳醫院";
+        event2.detail = getActivity().getString(R.string.detail_zoo);
+        event2.image = R.drawable.panda;
 
         
         Event[] tempevent = {event1, event2};
@@ -80,6 +88,8 @@ public class AllFragment extends ListFragment
         intent.putExtra(ALL_MEMBER, event.maxmember);
         intent.putExtra(TO, event.to);
         intent.putExtra(FROM, event.from);
+        intent.putExtra(DETAIL , event.detail);
+        intent.putExtra(IMAGE , event.image);
         startActivity(intent);
     }
 }

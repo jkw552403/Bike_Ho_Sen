@@ -52,14 +52,19 @@ public class EventAdapter extends BaseAdapter
                     findViewById(R.id.text_current);
             holder.textall= (TextView) convertView.
                     findViewById(R.id.text_all);
+            holder.image = (ImageView) convertView.
+                    findViewById(R.id.image_event);
         }
         else {
             holder = (Holder) convertView.getTag();
         }
         holder.textTitle.setText(event.title);
-        holder.textTime_To.setText("出發時間" + event.begintime);
+        holder.textTitle.setTextSize(20);
+        
+        holder.textTime_To.setText("出發時間: " + event.begintime);
         holder.textcurrent.setText("目前人數: " + event.currentmember);
         holder.textall.setText("所有人數: " + event.maxmember);
+        holder.image.setImageResource(event.image);;
         return convertView;
     }
 

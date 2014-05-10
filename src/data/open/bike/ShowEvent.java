@@ -27,6 +27,10 @@ public class ShowEvent extends Activity
 
     private String FROM = "FROM_EVENT";
     
+    private String DETAIL = "DETAIL_EVENT";
+
+    private String IMAGE = "IMAGE_EVENT";
+    
     TextView mTitle;
     TextView mTime;
     TextView mTo;
@@ -52,8 +56,10 @@ public class ShowEvent extends Activity
         String end_time = intent.getStringExtra(END_TIME);
         String to = intent.getStringExtra(TO);
         String from = intent.getStringExtra(FROM);
+        String detail = intent.getStringExtra(DETAIL);
         int current_member = intent.getIntExtra(CURRENT_MEMBER, -1);
         int all_member = intent.getIntExtra(ALL_MEMBER, -1);
+        int image = intent.getIntExtra(IMAGE, -1);
         mTitle = (TextView) findViewById(R.id.title_show);
         mTime = (TextView) findViewById(R.id.time_show);
         mTo = (TextView) findViewById(R.id.to_show);
@@ -61,14 +67,17 @@ public class ShowEvent extends Activity
         mDetail = (TextView) findViewById(R.id.detail_show);
         mMember = (TextView) findViewById(R.id.member_show);
         mTitle.setText(title);
+        mTitle.setTextSize(28);
+        mTitle.setTypeface(null, Typeface.BOLD);
         mTime.setText("出發時間: " + begin_time + "~" + end_time);
         mTo.setText("從" + from + "到" + to);
         mIntro.setText("簡介");
         mIntro.setTypeface(null, Typeface.BOLD);
-        mDetail.setText(this.getString(R.string.detail_lon));
+        mIntro.setTextSize(24);
+        mDetail.setText(detail);
         mMember.setText("目前人數: " + current_member + "    " + "所有人數: " + all_member);
         mImage = (ImageView) findViewById(R.id.image_show);
-        mImage.setImageResource(R.drawable.lon2);
+        mImage.setImageResource(image);
     }
     
     public boolean onOptionsItemSelected(MenuItem item) {
