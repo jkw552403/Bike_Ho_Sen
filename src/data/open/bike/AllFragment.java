@@ -1,15 +1,35 @@
 package data.open.bike;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 public class AllFragment extends ListFragment
 {
+    
+    Event[] events;
+    
     private EventAdapter mEventAdapter;
+
+    private String TITLE = "TITLE_EVENT";
+
+    private String BEGIN_TIME = "BEGIN_TIME_EVENT";
+
+    private String END_TIME = "END_TIME_EVENT";
+
+    private String CURRENT_MEMBER = "CURRENT_MEMBER_EVENT";
+
+    private String ALL_MEMBER = "ALL_MEMBER_EVENT";
+
+    private String TO = "TO_EVENT";
+
+    private String FROM = "FROM_EVENT";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState)
@@ -38,9 +58,28 @@ public class AllFragment extends ListFragment
         event2.from = "萬芳醫院";
 
         
-        Event[] events = {event1, event2};
+        Event[] tempevent = {event1, event2};
+        events = tempevent;
         super.onCreate(savedInstanceState);
         mEventAdapter = new EventAdapter(getActivity(), events);
         this.setListAdapter(mEventAdapter);
+        
+    }
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id)
+    {
+        super.onListItemClick(l, v, position, id);
+        Event event = events[position];
+        Log.d("AF", "JKW: " + event.title);
+        Intent intent = new Intent(getActivity(), ShowEvent.class);
+        intent.putExtra(TITLE, event.title);
+        intent.putExtra(BEGIN_TIME, event.begintime);
+        intent.putExtra(END_TIME, event.endtime);
+        intent.putExtra(CURRENT_MEMBER, event.currentmember);
+        intent.putExtra(ALL_MEMBER, event.maxmember);
+        intent.putExtra(TO, event.to);
+        intent.putExtra(FROM, event.from);
+        startActivity(intent);
     }
 }
